@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_labs"
+    app:startDestination="@id/LabsMainFragment">
+
+    <fragment
+        android:id="@+id/LabsMainFragment"
+        android:name="io.github.nirajprakash.patterns.ui.labs.LabsMainFragment"
+        android:label="Labs Main Fragment"
+        tools:layout="@layout/labs_main_fragment">
+
+        <action
+            android:id="@+id/navigate_to_nav_garbage"
+            app:destination="@id/nav_garbage" />
+
+        <action
+            android:id="@+id/navigate_to_nav_app"
+            app:destination="@id/nav_app" />
+    </fragment>
+
+</navigation>
