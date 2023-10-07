@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_auth"
+    app:startDestination="@id/AuthLoginFragment">
+
+    <fragment
+        android:id="@+id/AuthLoginFragment"
+        android:name="io.github.nirajprakash.patterns.ui.pages.auth.login.AuthLoginFragment"
+        android:label="Auth Login Fragment"
+        tools:layout="@layout/auth_login_fragment">
+
+    </fragment>
+
+
+</navigation>

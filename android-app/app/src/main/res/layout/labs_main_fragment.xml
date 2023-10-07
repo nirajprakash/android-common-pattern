@@ -57,6 +57,15 @@
                 android:gravity="center_horizontal"
                 android:text="Labs" />
 
+            <Button
+                android:id="@+id/labs_main_fragment_auth_btn"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_6"
+                android:onClick="@{() -> bViewModel.startAuth()}"
+                android:text="Auth" />
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp" />

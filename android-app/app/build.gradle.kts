@@ -9,12 +9,12 @@ plugins {
 
 android {
     namespace = "io.github.nirajprakash.patterns"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "io.github.nirajprakash.patterns"
         minSdk = 24
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -57,10 +57,10 @@ dependencies {
     kapt("com.google.dagger:hilt-android-compiler:2.47")
 
     // credential
-    implementation("androidx.credentials:credentials:1.2.0-beta04")
+    implementation("androidx.credentials:credentials:1.2.0-rc01")
     // optional - needed for credentials support from play services, for devices running
     // Android 13 and below.
-    implementation("androidx.credentials:credentials-play-services-auth:1.2.0-beta04")
+    implementation("androidx.credentials:credentials-play-services-auth:1.2.0-rc01")
 
 
 

@@ -38,6 +38,16 @@
             </intent-filter>
         </activity>
 
+       <!-- <activity
+            android:name=".ui.pages.auth.AuthActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Patterns.Transparent"/>
+-->
+        <activity
+            android:name=".ui.pages.auth.AuthActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Dialog"/>
+
         <service
             android:name=".modules.account.service.AccountAuthenticatorService"
             android:exported="true">
