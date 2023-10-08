@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+        <variable
+            name="bViewModel"
+            type="io.github.nirajprakash.patterns.ui.pages.auth.signup.AuthSignupViewModel" />
+
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?colorSurface">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            app:elevation="@dimen/dp_0">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/topAppBar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:navigationIcon="@drawable/round_arrow_back_24"
+                app:title="Signup"
+                app:titleCentered="true" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/dp_200"
+                android:clipToPadding="false">
+<!--  android:onClick="@{() -> bViewModel.navigateToSearch()}"
+-->
+
+                <!-- username -->
+ <!--               android:background="@android:color/transparent"
+                app:boxBackgroundColor="@android:color/transparent"
+ -->
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/auth_signup_fragment_group_inputs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:visibility="@{bViewModel.BIsInput ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintTop_toBottomOf="@id/auth_signup_fragment_username_layout"
+                    app:constraint_referenced_ids="auth_signup_fragment_password_layout,auth_signup_fragment_submit_btn"/>
+
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/auth_signup_fragment_group_actions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{bViewModel.BIsInput ? View.GONE : View.VISIBLE}"
+                    app:constraint_referenced_ids="auth_signup_fragment_passkey_btn,auth_signup_fragment_or,auth_signup_fragment_password_btn"/>
+
+                <androidx.constraintlayout.widget.Barrier
+                    android:id="@+id/barrier"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:barrierDirection="bottom"
+                    app:constraint_referenced_ids="auth_signup_fragment_username_layout,auth_signup_fragment_password_layout,auth_signup_fragment_submit_btn" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/auth_signup_fragment_username_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Username*"
+                    android:layout_marginHorizontal="@dimen/dp_20"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:boxBackgroundMode="outline">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/auth_signup_fragment_username_edit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:text="@={bViewModel.bUsername}"
+
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/auth_signup_fragment_password_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Password*"
+                    android:layout_marginTop="@dimen/dp_24"
+                    android:layout_marginHorizontal="@dimen/dp_20"
+                    app:layout_constraintTop_toBottomOf="@id/auth_signup_fragment_username_layout"
+                    app:boxBackgroundMode="outline">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/auth_signup_fragment_password_edit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:text="@={bViewModel.BPassword}"
+
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <Button
+                    android:id="@+id/auth_signup_fragment_submit_btn"
+
+                    android:enabled="@{bViewModel.bFormIsValid}"
+                    style="@style/Widget.Material3.Button"
+                    android:layout_marginTop="@dimen/dp_24"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/dp_56"
+                    android:layout_marginHorizontal="@dimen/dp_24"
+                    app:layout_constraintTop_toBottomOf="@id/auth_signup_fragment_password_layout"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:text="Submit"
+                    android:textAlignment="center"
+                    />
+
+<!--               extra   -->
+
+                <Button
+                    android:id="@+id/auth_signup_fragment_passkey_btn"
+
+                    style="@style/Widget.Material3.Button.ElevatedButton.Icon"
+                    android:layout_marginTop="@dimen/dp_24"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/dp_56"
+                    android:layout_marginHorizontal="@dimen/dp_24"
+
+                    app:layout_constraintTop_toBottomOf="@+id/barrier"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:icon="@drawable/round_lock_24"
+                    android:text="Signup with Passkey"
+                    app:iconPadding="@dimen/dp_24"
+                    android:textAlignment="textStart"
+                    />
+
+                <TextView
+                    android:id="@+id/auth_signup_fragment_or"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="or"
+                    android:layout_marginTop="@dimen/dp_20"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/auth_signup_fragment_passkey_btn" />
+
+                <Button
+                    android:id="@+id/auth_signup_fragment_password_btn"
+
+                    style="@style/Widget.Material3.Button.ElevatedButton.Icon"
+                    android:layout_marginTop="@dimen/dp_24"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/dp_56"
+                    android:layout_marginHorizontal="@dimen/dp_24"
+                    app:layout_constraintTop_toBottomOf="@id/auth_signup_fragment_or"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:icon="@drawable/round_password_24"
+                    android:text="Signup with password"
+
+                    app:iconPadding="@dimen/dp_24"
+                    android:textAlignment="textStart"
+                    android:onClick="@{() -> bViewModel.bActionInput()}"
+                    />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+        <include
+            layout="@layout/frame_progress_bind"
+            app:bData="@{bViewModel.bIsInProgress}" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
