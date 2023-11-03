@@ -18,6 +18,18 @@
         <action
             android:id="@+id/navigate_to_nav_app"
             app:destination="@id/nav_app" />
+        <action
+            android:id="@+id/navigate_to_labs_contacts"
+            app:destination="@id/LabsContactsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/LabsContactsFragment"
+        android:name="io.github.nirajprakash.patterns.ui.labs.contacts.LabsContactsFragment"
+        android:label="Labs Contacts Fragment"
+        tools:layout="@layout/labs_contacts_fragment">
+
+
     </fragment>
 
 </navigation>

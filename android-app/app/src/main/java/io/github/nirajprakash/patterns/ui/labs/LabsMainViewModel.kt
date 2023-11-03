@@ -41,4 +41,9 @@ class LabsMainViewModel @Inject constructor(
 
         navManager.navigate(LabsMainFragmentDirections.navigateToNavGarbage())
     }
+
+    fun navigateToContacts(){
+        navManager.navigate(LabsMainFragmentDirections.navigateToLabsContacts())
+
+    }
 }
